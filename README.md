@@ -14,7 +14,7 @@ O usuário irá interagir com a interface utilizando apenas o teclado.
 + Logo após escolher a opção desejada, apenas siga as instruções do programa.
 
 ## 🧰 Instalação
-+ *_OBS: Uma IDE compátivel com o PYTHON é *_NECESSÁRIA!_*
++ *_OBS: Uma IDE compátivel com o PYTHON é NECESSÁRIA!_*
 1. Faça o download e extração do projeto;
 2. Abra a pasta _agenda-telefonica_ e execute o arquivo _main_ 
 3. Logo em seguida, clique com botão direito no código e em "RUN 'main'"
