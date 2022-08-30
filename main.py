@@ -51,6 +51,21 @@ def modificarContato():
     except:
         print('ERRO: Não foi encontrado nenhum contato em sua agenda com esse nome.')
 
+
+def removerContato():
+    try:
+        nomeRemover = input('Digite o nome do contato que deseja remover: ')
+        confirmacao = input(f'Você tem certeza que deseja remover {nomeRemover} de sua agenda? (S/N): ')
+        if confirmacao in 'Ss':
+            del agenda[nomeRemover]
+            print('Contato removido com sucesso!')
+        elif confirmacao in 'Nn':
+            print('Operação cancelada.')
+        else:
+            print('ERRO: Opção inválida.')
+    except:
+        print('ERRO: Não foi encontrado nenhum contato em sua agenda com esse nome.')
+
 while True:
     print('='*30)
     print('[1] Inserir novo contato\n'
