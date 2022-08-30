@@ -79,36 +79,59 @@ def relatorioAgenda():
         contador += 1
         print(
             f'{contador:<4}{i:<20}{agenda[i]["Email"]:<32}{agenda[i]["Telefone"]:<20}{agenda[i]["Twitter"]:<20}{agenda[i]["Instagram"]}')
-while True:
-    print('='*30)
-    print('[1] Inserir novo contato\n'
-          '[2] Inserir dois ou mais contatos\n'
-          '[3] Relatório da agenda\n'
-          '[4] Consultar contato\n'
-          '[5] Modificar contato\n'
-          '[6] Remover contato\n'
-          '[7] Fechar agenda')
-    print('='*30)
-    opcao = input('Digite a opção desejada: ')
-    if opcao == '7':
-        print('Fechando agenda...')
-        sleep(1)
-        break
 
-    elif opcao == '1':
-        novoContato()
-        print('Contato cadastrado com sucesso!')
-    elif opcao == '2':
-        novosContatos()
-    elif opcao == '3':
-        relatorioAgenda()
-    elif opcao == '4':
-        consultarContato()
-    elif opcao == '5':
-        modificarContato()
-    elif opcao == '6':
-        removerContato()
-    else:
-        print('ERRO: Opção inválida.')
 
-print('Agenda fechada.')
+def salvarContatos():
+    contatos = open('agenda.txt', 'w')
+    for i in agenda.keys():
+        salvar = f'{i},{agenda[i]["Telefone"]},{agenda[i]["Email"]},{agenda[i]["Twitter"]},{agenda[i]["Instagram"]}\n'
+        contatos.write(salvar)
+    print('Salvando contatos...')
+    sleep(1)
+    print('Contatos salvos com sucesso!')
+    contatos.close()
+
+
+def menu():
+    while True:
+        print('='*30)
+        print('[1] Inserir novo contato\n'
+              '[2] Inserir dois ou mais contatos\n'
+              '[3] Relatório da agenda\n'
+              '[4] Consultar contato\n'
+              '[5] Modificar contato\n'
+              '[6] Remover contato\n'
+              '[7] Salvar contatos\n'
+              '[8] Fechar agenda')
+        print('='*30)
+        opcao = input('Digite a opção desejada: ')
+        if opcao == '8':
+            salvarContatos()
+            sleep(0.5)
+            print('Fechando agenda...')
+            sleep(1)
+            break
+
+        elif opcao == '1':
+            novoContato()
+            print('Contato cadastrado com sucesso!')
+        elif opcao == '2':
+            novosContatos()
+        elif opcao == '3':
+            relatorioAgenda()
+        elif opcao == '4':
+            consultarContato()
+        elif opcao == '5':
+            modificarContato()
+        elif opcao == '6':
+            removerContato()
+        elif opcao == '7':
+            salvarContatos()
+        else:
+            print('ERRO: Opção inválida.')
+
+    print('Agenda fechada.')
+def main():
+    menu()
+
+main()
