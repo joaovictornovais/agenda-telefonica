@@ -9,8 +9,13 @@ def novoContato():
     twitter = input('Twitter: ')
     instagram = input('Instagram: ')
     agenda[nome] = {'Telefone': telefone, 'Email': email, 'Twitter': twitter, 'Instagram': instagram}
-    print('Contato cadastrado com sucesso!')
 
+
+def novosContatos():
+    qtd = int(input('Quantos contatos você deseja adicionar? '))
+    for i in range(qtd):
+        novoContato()
+        print(f'Contato {i+1} cadastrado com sucesso')
 
 def consultarContato():
     try:
@@ -69,20 +74,24 @@ def removerContato():
 while True:
     print('='*30)
     print('[1] Inserir novo contato\n'
-          '[2] Consultar contato\n'
-          '[3] Modificar contato\n'
-          '[4] Remover contato\n'
-          '[5] Fechar agenda')
+          '[2] Inserir dois ou mais contatos\n'
+          '[3] Consultar contato\n'
+          '[4] Modificar contato\n'
+          '[5] Remover contato\n'
+          '[6] Fechar agenda')
     print('='*30)
     opcao = input('Digite a opção desejada: ')
-    if opcao == '5':
+    if opcao == '6':
         print('Fechando agenda...')
         sleep(1)
         break
 
     elif opcao == '1':
         novoContato()
+        print('Contato cadastrado com sucesso!')
     elif opcao == '2':
+        novosContatos()
+    elif opcao == '3':
         consultarContato()
     elif opcao == '3':
         modificarContato()
