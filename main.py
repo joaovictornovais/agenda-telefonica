@@ -71,17 +71,26 @@ def removerContato():
     except:
         print('ERRO: Não foi encontrado nenhum contato em sua agenda com esse nome.')
 
+
+def relatorioAgenda():
+    contador = 0
+    print(f'{"Nro":<4}{"Nome":<20}{"E-mail":<32}{"Telefone":<20}{"Twitter":<20}{"Instagram"}')
+    for i in agenda.keys():
+        contador += 1
+        print(
+            f'{contador:<4}{i:<20}{agenda[i]["Email"]:<32}{agenda[i]["Telefone"]:<20}{agenda[i]["Twitter"]:<20}{agenda[i]["Instagram"]}')
 while True:
     print('='*30)
     print('[1] Inserir novo contato\n'
           '[2] Inserir dois ou mais contatos\n'
-          '[3] Consultar contato\n'
-          '[4] Modificar contato\n'
-          '[5] Remover contato\n'
-          '[6] Fechar agenda')
+          '[3] Relatório da agenda\n'
+          '[4] Consultar contato\n'
+          '[5] Modificar contato\n'
+          '[6] Remover contato\n'
+          '[7] Fechar agenda')
     print('='*30)
     opcao = input('Digite a opção desejada: ')
-    if opcao == '6':
+    if opcao == '7':
         print('Fechando agenda...')
         sleep(1)
         break
@@ -92,10 +101,12 @@ while True:
     elif opcao == '2':
         novosContatos()
     elif opcao == '3':
-        consultarContato()
-    elif opcao == '3':
-        modificarContato()
+        relatorioAgenda()
     elif opcao == '4':
+        consultarContato()
+    elif opcao == '5':
+        modificarContato()
+    elif opcao == '6':
         removerContato()
     else:
         print('ERRO: Opção inválida.')
