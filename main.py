@@ -10,6 +10,16 @@ def novoContato():
     agenda[nome] = {'Telefone': telefone, 'Email': email, 'Twitter': twitter, 'Instagram': instagram}
     print('Contato cadastrado com sucesso!')
 
+
+def consultarContato():
+    try:
+        nomeConsulta = input('Digite o nome do contato que deseja consultar: ')
+        print(f'Dados do {nomeConsulta}')
+        for k, v in agenda[nomeConsulta].items():
+            print(f'{k}: {v}')
+    except:
+        print('ERRO: Não foi encontrado nenhum contato em sua agenda com esse nome.')
+
 while True:
     print('='*30)
     print('[1] Inserir novo contato\n'
