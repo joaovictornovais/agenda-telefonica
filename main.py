@@ -1,5 +1,14 @@
 from time import sleep
+agenda = {}
 
+def novoContato():
+    nome = input('Nome: ')
+    telefone = input('Telefone: ')
+    email = input('E-mail: ')
+    twitter = input('Twitter: ')
+    instagram = input('Instagram: ')
+    agenda[nome] = {'Telefone': telefone, 'Email': email, 'Twitter': twitter, 'Instagram': instagram}
+    print('Contato cadastrado com sucesso!')
 
 while True:
     print('='*30)
